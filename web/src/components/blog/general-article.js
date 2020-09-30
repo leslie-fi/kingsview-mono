@@ -1,10 +1,10 @@
 import { Link } from "gatsby";
 import React from "react";
-import { cn } from "../lib/helpers";
-import PortableText from "./portableText";
+import { cn } from "lib/helpers";
+import PortableText from "../shared/portableText";
 
 import styles from "./general-article.module.css";
-import { responsiveTitle3 } from "./typography.module.css";
+import { responsiveTitle3 } from "../typography.module.css";
 
 function GeneralArticle(props) {
   return (

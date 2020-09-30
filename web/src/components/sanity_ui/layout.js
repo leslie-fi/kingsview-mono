@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./header";
 import Footer from "./footer";
-import "../styles/layout.css";
+import "styles/layout.css";
 
 class Layout extends React.Component {
   constructor(props) {

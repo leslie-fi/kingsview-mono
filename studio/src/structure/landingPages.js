@@ -36,5 +36,9 @@ export default S.listItem()
               .menuItems(S.documentTypeList('page').getMenuItems())
               .filter('_type == "page" && _id != "frontpage"')
           ),
+          S.listItem()
+          .title('Team')
+          .schemaType('teamMember')
+          .child(S.documentTypeList('teamMember').title('Team')),
       ])
   )

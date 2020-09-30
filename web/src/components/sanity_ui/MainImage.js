@@ -1,6 +1,6 @@
 import React from "react";
-import { buildImageObj } from "../lib/helpers";
-import { imageUrlFor } from "../lib/image-url";
+import { buildImageObj } from "lib/helpers";
+import { imageUrlFor } from "lib/image-url";
 
 const MainImage = ({ mainImage, width = 1200 }) => {
   const imgUrl =

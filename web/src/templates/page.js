@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 
-import Hero from "../components/hero";
-import InfoRows from "../components/InfoRows";
-import CTAColumns from "../components/cta-columns";
-import CTA from "../components/cta";
-import Pricing from "../components/pricing";
-import { TopWave, BottomWave } from "../components/wave";
-
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import Hero from "components/sanity_ui/hero";
+import InfoRows from "components/sanity_ui/InfoRows";
+import CTAColumns from "components/sanity_ui/cta-columns";
+import CTA from "components/sanity_ui/cta";
+import Pricing from "components/sanity_ui/pricing";
+import { TopWave, BottomWave } from "components/sanity_ui/wave";
+import GraphQLErrorList from "components/shared/graphql-error-list";
+import SEO from "components/shared/seo";
+import Layout from "containers/layout";
+import {TeamSection} from "../components/team";
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -42,7 +42,7 @@ export const query = graphql`
   }
 `;
 
-const Page = (props) => {
+const Page = props => {
   const { data, errors } = props;
 
   if (errors) {
@@ -64,7 +64,7 @@ const Page = (props) => {
   const page = data.page || data.route.page;
 
   const content = (page._rawContent || [])
-    .filter((c) => !c.disabled)
+    .filter(c => !c.disabled)
     .map((c, i) => {
       let el = null;
       switch (c._type) {
@@ -91,6 +91,9 @@ const Page = (props) => {
             case "bottomWave":
               el = <BottomWave />;
               break;
+            case "team":
+              el = <TeamSection />;
+              break;
             default:
               break;
           }
@@ -103,7 +106,7 @@ const Page = (props) => {
 
   const gradient = {
     from: (site.primaryColor && site.primaryColor.hex) || "#d53369",
-    to: (site.secondaryColor && site.secondaryColor.hex) || "#daae51",
+    to: (site.secondaryColor && site.secondaryColor.hex) || "#daae51"
   };
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
@@ -116,7 +119,7 @@ const Page = (props) => {
         description={site.description}
         keywords={site.keywords}
         bodyAttr={{
-          class: "leading-normal tracking-normal text-white gradient",
+          class: "leading-normal tracking-normal text-white gradient"
         }}
         gradient={gradient}
       />

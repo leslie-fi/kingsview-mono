@@ -4,8 +4,14 @@ import {
   mathInlineIcon,
   mathIcon,
   highlightIcon,
-  highlightRender,
+  highlightRender
 } from '../components/PortableTextEditorComponents'
+
+const buttonRender = props => (
+  <button style={{backgroundColor: 'lightgray', display: 'inline-block', padding: '1rem', border: 'none', borderRadius: '5px', cursor: 'pointer'}}>
+    {props.children}
+  </button>
+)
 
 export default {
   name: 'bodyPortableText',
@@ -68,7 +74,32 @@ export default {
               {
                 title: 'URL',
                 name: 'href',
-                type: 'url'
+                type: 'url',
+                validation: Rule =>
+                  Rule.required().uri({scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true})
+              }
+            ]
+          },
+          {
+            name: 'button',
+            type: 'object',
+            title: 'Button',
+            blockEditor: {
+              icon: () => 'Btn',
+              render: buttonRender
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: Rule =>
+                  Rule.required().uri({scheme: ['http', 'https', 'mailto', 'tel'], allowRelative: true})
+              },
+              {
+                title: 'Open in new window',
+                name: 'blank',
+                type: 'boolean'
               }
             ]
           }
@@ -76,6 +107,7 @@ export default {
       },
       of: [
         { type: 'authorReference' },
+        { type: 'teamMemberReference' },
         { type: 'math', icon: mathInlineIcon, title: 'Inline math' }
       ]
     },
@@ -88,6 +120,10 @@ export default {
     },
     { type: 'instagram' },
     { type: 'videoEmbed' },
+    
+    {
+      type: 'iframeEmbed'
+    },
     { type: 'math', icon: mathIcon, title: 'Math block' }
   ]
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import PortableText from "./portableText";
-import clientConfig from "../../client-config";
+import PortableText from "../shared/portableText";
+import clientConfig from "../../../client-config";
 import CTALink from "./CTALink";
 
 import { getFluidGatsbyImage } from "gatsby-source-sanity";

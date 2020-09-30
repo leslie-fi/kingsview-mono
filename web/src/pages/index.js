@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Errors from "../components/errors";
-import Page from "../templates/page";
+import Errors from "components/shared/errors";
+import Page from "templates/page";
 
 export const query = graphql`
   fragment SanityImage on SanityMainImage {

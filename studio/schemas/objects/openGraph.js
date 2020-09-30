@@ -4,6 +4,15 @@ export default {
   type: 'object',
   fields: [
     {
+      name: 'keywords',
+      title: 'Keywords',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: {
+        layout: 'tags'
+      }
+    },
+    {
       title: 'Title',
       name: 'title',
       type: 'string',

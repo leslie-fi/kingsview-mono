@@ -11,6 +11,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import page from './documents/page'
+import teamMember from './documents/teamMember'
 import siteSettings from './documents/siteSettings'
 import route from './documents/route'
 
@@ -21,12 +22,15 @@ import * as plugs from './plugs'
 import plugDefaultFields from './plugs/_plugDefaultFields'
 
 // Object types
+import iframeEmbed from './objects/iframeEmbed'
 import { instagram, videoEmbed } from './objects/embeds'
 import cta from './objects/cta'
+import meta from './objects/meta'
 import bodyPortableText from './objects/bodyPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+import teamMemberReference from './objects/teamMemberReference'
 import link from './objects/link'
 import variation from './objects/variation'
 import openGraph from './objects/openGraph'
@@ -45,6 +49,7 @@ export default createSchema({
       localeString,
       variation,
       openGraph,
+      teamMember,
       experiment,
       route,
       link,
@@ -58,8 +63,10 @@ export default createSchema({
       author,
       mainImage,
       authorReference,
+      teamMemberReference,
       instagram,
       videoEmbed,
+      iframeEmbed,
       bodyPortableText,
       excerptPortableText,
     ])

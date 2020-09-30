@@ -1,5 +1,5 @@
 import React from "react";
-import PortableText from "../components/portableText";
+import PortableText from "../shared/portableText";
 import CTALink from "./CTALink";
 
 const CTA = ({ label, title, body, ctas }) => (

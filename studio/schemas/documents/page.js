@@ -17,6 +17,11 @@ export default {
       description: 'Which nav menu should be shown, if any',
     },
     {
+      name: 'body',
+      type: 'bodyPortableText',
+      title: 'Body',
+    },
+    {
       name: 'content',
       type: 'array',
       title: 'Page sections',
@@ -28,6 +33,7 @@ export default {
         { type: 'infoRows' },
         { type: 'ctaColumns' },
         { type: 'ctaPlug' },
+        { type: 'team' },
       ],
     },
   ],

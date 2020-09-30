@@ -1,8 +1,8 @@
 import React from "react";
-import PortableText from "./portableText";
+import PortableText from "../shared/portableText";
 
 import { getFluidGatsbyImage } from "gatsby-source-sanity";
-import clientConfig from "../../client-config";
+import clientConfig from "../../../client-config";
 
 const maybeImage = illustration => {
   let img = null;

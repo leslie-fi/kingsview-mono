@@ -32,7 +32,7 @@ export default {
       to: [
         {
           type: 'page',
-        },
+        }
       ],
     },
     {
@@ -112,7 +112,7 @@ export default {
   preview: {
     select: {
       title: 'slug.current',
-      subtitle: 'page.title',
+      subtitle: 'page.title' ,
     },
     prepare({ title, subtitle }) {
       return {

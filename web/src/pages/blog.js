@@ -4,12 +4,12 @@ import {
   mapEdgesToNodes,
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
-} from "../lib/helpers";
-import BlogPostPreviewList from "../components/blog-post-preview-list";
-import Container from "../components/container";
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
-import Layout from "../containers/layout";
+} from "lib/helpers";
+import BlogPostPreviewList from "components/blog/blog-post-preview-list";
+import Container from "components/sanity_ui/container";
+import GraphQLErrorList from "components/shared/graphql-error-list";
+import SEO from "components/shared/seo";
+import Layout from "containers/layout";
 
 export const query = graphql`
   query IndexPageQuery {
