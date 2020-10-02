@@ -37,8 +37,17 @@ export default S.listItem()
               .filter('_type == "page" && _id != "frontpage"')
           ),
           S.listItem()
-          .title('Team')
+          .title('Team Members')
           .schemaType('teamMember')
-          .child(S.documentTypeList('teamMember').title('Team')),
+          .child(S.documentTypeList('teamMember').title('The Team')),
+          S.listItem()
+          .title("Team Page")
+          .child(
+              S.editor()
+                  .id('team')
+                  .schemaType("team")
+                  .documentId("team")
+                  .views([S.view.form(), PreviewIFrame()])
+          )
       ])
   )

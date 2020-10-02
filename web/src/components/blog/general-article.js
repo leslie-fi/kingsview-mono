@@ -10,7 +10,7 @@ function GeneralArticle(props) {
   return (
     <div>
       <div className={styles.text}>
-        <h2 className={cn(responsiveTitle3, styles.title)}>{props.title}</h2>
+        <h2 style={{textAlign: 'center'}} className={cn(responsiveTitle3, styles.title)}>{props.title}</h2>
         {props.subtitle && (
           <div className={styles.excerpt}>
             <PortableText blocks={props.subtitle} />

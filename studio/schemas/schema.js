@@ -11,6 +11,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import page from './documents/page'
+import team from './documents/team'
 import teamMember from './documents/teamMember'
 import siteSettings from './documents/siteSettings'
 import route from './documents/route'
@@ -35,6 +36,7 @@ import link from './objects/link'
 import variation from './objects/variation'
 import openGraph from './objects/openGraph'
 import latex from './latex'
+import teamRoute from './objects/singletonRoute'
 
 const allPlugs = Object.values(plugs).map((plug) => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
@@ -59,6 +61,8 @@ export default createSchema({
       post,
       navMenu,
       page,
+      team,
+      teamRoute,
       category,
       author,
       mainImage,

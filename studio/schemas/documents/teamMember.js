@@ -69,10 +69,10 @@ export default {
       options: {
         layout: 'radio',
         list: [
-          { title: 'CEO/Owner', value: 'ceo' },
-          { title: 'Developer', value: 'developer' },
-          { title: 'MLS Agent', value: 'mls_agent' },
-          { title: 'Real Estate Agent', value: 're_agent' }
+          { title: 'CEO/Owner', value: 'CEO/Owner' },
+          { title: 'Developer', value: 'Developer' },
+          { title: 'MLS Agent', value: 'MLS Agent' },
+          { title: 'Real Estate Agent', value: 'Real Estate Agent' }
         ],
         validation: Rule =>
         Rule.required()

@@ -27,7 +27,7 @@ console.log({TeamMembers})
           ))}
         </div>
       </div>
-        <AltTeamMember />
+        {/* <AltTeamMember /> */}
     </section>
   );
 };

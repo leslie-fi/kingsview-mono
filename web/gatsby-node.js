@@ -24,6 +24,37 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   ]);
 };
 
+async function createTeamPage(pathPrefix = "/", graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityTeamPage(filter: { slug: { current: { ne: null } },  id: { ne: null } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const routeEdges = (result.data.allSanityTeamPage || {}).edges || [];
+  routeEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node;
+    const path = "/team";
+    reporter.info(`Creating team page: ${path}`);
+    createPage({
+      path,
+      component: require.resolve("./src/templates/team-page.js"),
+      context: { id },
+    });
+  });
+} 
 async function createLandingPages(pathPrefix = "/", graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
@@ -90,8 +121,42 @@ async function createBlogPostPages(pathPrefix = "/blog", graphql, actions, repor
       });
     });
 }
+async function createTeamMemberPages(pathPrefix = "/team", graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityTeamMember(filter: { slug: { current: { ne: null } }, id: { ne: null } }) {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const teamMemberEdges = (result.data.allSanityTeamMember || {}).edges || [];
+  teamMemberEdges
+    .forEach((edge) => {
+      const { id, slug = {} } = edge.node;
+      const path = `${pathPrefix}/${slug.current}/`;
+      reporter.info(`Creating blog post page: ${path}`);
+      createPage({
+        path,
+        component: require.resolve("./src/templates/team-member.js"),
+        context: { id },
+      });
+    });
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createLandingPages("/", graphql, actions, reporter);
+  await createTeamPage("/", graphql, actions, reporter);
   await createBlogPostPages("/blog", graphql, actions, reporter);
+  await createTeamMemberPages("/team", graphql, actions, reporter);
 };
